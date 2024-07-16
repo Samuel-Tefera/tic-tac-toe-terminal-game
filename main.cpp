@@ -11,8 +11,6 @@ void printCurrentGameBoard(string gameBoard[ROWS][COLS]);
 string getWinner(string gameBoard[ROWS][COLS]);
 void getUserInput (bool xTurn, string gameBorad[ROWS][COLS]);
 bool isgameBoardFull(int count);
-
-
 void runGame();
 
 
@@ -33,6 +31,7 @@ void intializeGameBoard(string gameBoard[ROWS][COLS])
         }
     }
 }
+
 void printCurrentGameBoard(string gameBoard[ROWS][COLS])
 {
     cout<<endl;
@@ -54,6 +53,7 @@ void printCurrentGameBoard(string gameBoard[ROWS][COLS])
     }
     cout<<endl<<endl;
 }
+
 void getUserInput(bool xTurn, string gameBoard[ROWS][COLS])
 {
     int row;
@@ -111,6 +111,7 @@ void getUserInput(bool xTurn, string gameBoard[ROWS][COLS])
         }
     }
 }
+
 bool isGameBoardFull(int& count)
 {
     if (count == 8)
@@ -122,6 +123,7 @@ bool isGameBoardFull(int& count)
         return false;
     }
 }
+
 string getWinner(string gameboard[ROWS][COLS])
 {
     for (int i = 0; i < ROWS; i++)
@@ -146,9 +148,18 @@ string getWinner(string gameboard[ROWS][COLS])
     {
         return "X";
     }
+    if(gameboard[0][0]=="O" && gameboard[1][1] =="O" && gameboard[2][2]=="O")
+    {
+        return "O";
+    }
+    if(gameboard[2][0]=="O" && gameboard[1][1] =="O" && gameboard[0][2]=="O")
+    {
+        return "O";
+    }
     return "  ";
 
 }
+
 void runGame()
 {
     string gameBoard[ROWS][COLS];
@@ -191,5 +202,4 @@ void runGame()
         
         count++;
     }
-   
 }
